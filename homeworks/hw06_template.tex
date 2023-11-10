@@ -1,0 +1,450 @@
+% DS100: Search for YOUR ANSWER HERE in this LaTeX document. Then (if using Overleaf) press "Recompile" or Ctrl/Cmd+S.
+% To download a file, select the download button next to "Recompile"
+% http://mirrors.concertpass.com/tex-archive/macros/latex/contrib/exam/examdoc.pdf
+
+\documentclass[addpoints, 12pt]{exam}
+
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{bbm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{xurl}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+}
+\usepackage{multicol}
+
+\lstset{language=python, basicstyle=\ttfamily}
+\newcommand{\closedinterval}[2]{\left[#1, #2\right]}
+\setlength{\columnsep}{1cm}
+\setlength{\parskip}{1em}
+\usepackage{xcolor,framed}
+
+\usepackage{amsthm}
+\theoremstyle{definition}
+\newtheorem*{answer}{Answer}
+
+% Header
+\newcommand{\lecture}[4]{
+    \def \printtitle {
+    \ifprintanswers
+    #1~Solutions
+    \else
+    #1
+    \fi
+    }
+	\pagestyle{myheadings}
+	\thispagestyle{plain}
+	\newpage
+	\setcounter{page}{1}
+	\noindent
+	\begin{center}
+		\framebox{
+			\vbox{\vspace{2mm}
+				\hbox to 6.28in { {\bf Data 100, Spring 2023
+						\hfill #4} }
+				\vspace{6mm}
+				\hbox to 6.28in { {\Large \hfill \printtitle{}  \hfill}  }
+				\vspace{6mm}
+				\hbox to 6.28in { {\it  #2 \hfill #3} }
+				\vspace{2mm}}
+		}
+	\end{center}
+	\markboth{#1}{#1}
+	%\vspace*{-2mm}
+}
+
+\definecolor{shadecolor}{gray}{0.95}
+
+\begin{document}
+\newcommand{\homework}{6}
+\newcommand{\duedate}{Thursday, March 2nd at 11:59 PM Pacific}
+\lecture{Homework \#\homework{}}{}{Due Date: \duedate{}}{}
+
+%\vspace{-1em}
+
+\noindent\textbf{Total Points: 36}
+
+\fullwidth{\section*{Submission Instructions}}
+
+
+\noindent You must submit this assignment to Gradescope by 
+the on-time deadline, \textbf{\duedate{}}. Please read the syllabus for \textbf{the grace period policy}. No late submissions beyond the grace period will be accepted. While course staff is happy to help you if you encounter difficulties with submission, we may not be able to respond to last-minute requests for assistance (TAs need to sleep, after all!). \textbf{We strongly encourage you to plan to submit your work to Gradescope several hours before the stated deadline.} This way, you will have ample time to reach out to staff for submission support. \\
+
+\noindent This assignment is entirely on paper. Your submission (a single PDF) can be generated as follows:
+\begin{enumerate}
+    \item
+    \begin{itemize}
+        \item You can type your answers. We recommend LaTeX, the math typesetting language. Overleaf is a great tool to type in LaTeX.
+        \item Download this PDF, print it out and write directly on these pages. If you have a tablet, you may save this PDF and write directly on it.
+        \item Write your answers on a blank sheet of physical or digital paper.
+        \item Note: If you write your answers on physical paper, use a scanning application (e.g., CamScanner, Apple Notes) to generate a PDF.
+    \end{itemize}
+
+    \item \textbf{Important}: When submitting on Gradescope, you \textbf{must tag pages to each question correctly} (it prompts you to do this after submitting your work). This significantly streamlines the grading process for our readers. Failure to do this may result in a score of 0 for untagged questions.
+\end{enumerate}
+
+\noindent \textit{You are responsible for ensuring your submission follows our requirements. We will not be granting regrade requests nor extensions to submissions that don't follow instructions.} If you encounter any difficulties with submission, please don't hesitate to reach out to staff prior to the deadline.
+
+
+\fullwidth{\section*{Collaborators}}
+\noindent Data science is a collaborative activity. While you may talk with others about the homework, we ask that you write your solutions individually. If you do discuss the assignments with others, please include their names at the top of your submission.
+
+
+ 
+%%%%%%%%%%%%%% Collaborators %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Collaborators %%%%%%%%%%%%%%
+
+
+
+
+\newpage
+
+\begin{questions}
+
+\fullwidth{\section*{Constant predictions}}
+\vspace{-1em}
+
+\question[10] One model that is even simpler than the linear model is the {\em constant model~}:
+
+ $$\hat{y} = \theta_0$$
+
+We predict exactly the same $\theta_0$ for every observation $y_i$. We might do this if we had no predictor variables. Or, if our predictor variable were categorical (e.g., gender; or treatment vs. control group), we might make a different prediction for each gender, estimating a constant model within each group.
+
+One benefit of studying the constant model is that it is a simple context in which we can build our intuition for how different loss functions differ from each other. For the following question, assume that we observe $y_1,\ldots,y_n$, and we choose $\theta_0$ to minimize the empirical risk of predicting $\theta_0$ for every single $y_i$:
+\[
+\hat{R}(\theta_0) = \frac{1}{n} \sum_i L(y, \theta_0)
+\]
+
+\begin{parts}
+\part[2] If we use the L2 loss: $$L(y, \hat{y}) = (y - \hat{y})^2$$ Show that the best-fitting estimate is the sample mean; i.e., $\hat{\theta}_0 = \bar{y}$. (Note: After finding the critical point, please show or briefly explain why it is the minimum. You should assume this is always necessary, unless otherwise specified.)
+ 
+%%%%%%%%%%%%%% Question 1a %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 1a %%%%%%%%%%%%%%
+
+\newpage
+\part[2] If we use the L1 loss: $$L(y, \hat{y}) = |y - \hat{y}|$$ Show that the best-fitting estimate is the sample median. To simplify the problem, you may assume that $n$ is odd, so the median is well-defined. 
+ 
+%%%%%%%%%%%%%% Question 1b %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 1b %%%%%%%%%%%%%%
+
+\part[2] Another option is to use what we might call the L0 loss 
+\[
+L(y, \hat{y}) = \begin{cases} 1 & \text{if } y \not = \hat{y}\\
+0 & \text{if } y = \hat{y} \end{cases}
+\]
+Show that the best-fitting estimate is the sample mode. (Written explanation is sufficient, no equations required.)
+ 
+%%%%%%%%%%%%%% Question 1c %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 1c %%%%%%%%%%%%%%
+
+Note: This loss is interesting because it doesn't care the least bit how far $y$ is from $\hat{y}$, only whether $y$ is perfectly predicted or not. This is a natural loss to use if $y$ is a categorical feature with no ordinal structure. 
+
+
+
+\part[3] Consider a weighted version of the L1 loss:
+\[
+L(y, \hat{y}) = \begin{cases} |y - \hat{y}| & \text{if } y > \hat{y}\\ 0 & \text{if } y = \hat{y}\\
+w \cdot |y - \hat{y}| & \text{if } y < \hat{y} \end{cases}
+\]
+where $w> 0$ is a nonzero weight that tells us how much more costly overestimates are vs underestimates.
+
+Show that the optimal choice of $\hat{y} = \theta_0$ is where $\frac{1}{1+w}$ of the data points is below $\hat{\theta}_0$ and $\frac{w}{1+w}$ of the data points is above $\hat{\theta}_0$. (Note: This point is a summary statistic known as the $\frac{1}{1+w}$ percentile.)
+ 
+%%%%%%%%%%%%%% Question 1d %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 1d %%%%%%%%%%%%%%
+
+\end{parts}
+
+
+
+
+
+\newpage
+
+\fullwidth{\section*{Geometric Perspective of Simple Linear Regression}}
+
+
+\question[8] In Lecture 12, we viewed both the simple linear regression model and the multiple linear regression model through the lens of linear algebra. The key geometric insight was that if we train a model on some design matrix $\Bbb{X}$ and true response vector $\Bbb{Y}$, our predicted response $\hat{\Bbb{Y}} = \Bbb{X} \hat{\theta}$ is the vector in $\text{span}(\Bbb{X})$ that is closest to $\Bbb{Y}$. 
+
+In the simple linear regression case, our optimal vector $\theta$ is $\hat{\theta} = [\hat{\theta_0}, \hat{\theta_1}]$, and our design matrix is
+
+$$\Bbb{X} = \begin{bmatrix} 1 & x_1 \\ 1 & x_2 \\ \vdots & \vdots \\ 1 & x_n \end{bmatrix} = \begin{bmatrix} | & | \\ \mathbbm{1}_n & \vec{x} \\ | & | \end{bmatrix}$$
+
+This means we can write our predicted response vector as $\hat{\Bbb{Y}} = \Bbb{X} \begin{bmatrix} \hat{\theta_0} \\ \hat{\theta_1} \end{bmatrix} = \hat{\theta_0} \mathbbm{1}_n + \hat{\theta_1} \vec{x}$. 
+
+In this problem, $\mathbbm{1}_n$ is the $n$-vector of all $1$s
+and $\vec{x}$ refers to the $n$-length vector $[x_1, x_2, ..., x_n]^{\top}$. Note, $\vec{x}$ is a feature, not an observation.
+
+For this problem, assume we are working with the \textbf{simple linear regression model}, though the properties we establish here hold for any linear regression model that contains an intercept term.
+
+\begin{parts}
+\part[3] Recall in the last assignment, we showed that $\sum\limits_{i = 1}^n e_i = 0$ algebraically. In this question, explain why $\sum\limits_{i = 1}^n e_i = 0$ using a geometric property.
+(Hint: $e = \Bbb{Y} - \Bbb{\hat{Y}}$, and $e = [e_1, e_2, ..., e_n]^{\top}$.)
+
+%%%%%%%%%%%%%% Question 2a %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 2a %%%%%%%%%%%%%%
+
+\part[3] Similarly, show that $\sum\limits_{i = 1}^n e_ix_i = 0$ using a geometric property.
+(Hint: Your answer should be very similar to the above)
+
+%%%%%%%%%%%%%% Question 2b %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 2b %%%%%%%%%%%%%%
+
+\part[2] Briefly explain why the vector $\hat{\Bbb{Y}}$ must also be orthogonal to the residual vector $e$. 
+ 
+%%%%%%%%%%%%%% Question 2c %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 2c %%%%%%%%%%%%%%
+
+\end{parts}
+
+Remark: Solving the minimum L2 loss solution is equivalent to the geometric perspective. 
+
+
+\newpage
+\fullwidth{\section*{Calculus Perspective of Normal Equations}}
+
+\vspace{-1em}
+
+\question[7] 
+In the lecture, we discussed a geometric argument to get the least squares estimator. Based on the orthogonality principle, we can obtain the {\em normal equations} below: 
+\[
+\mathbb{X}^{\top}(\mathbb{Y} - \mathbb{X}\theta) = 0.
+\]
+We can rearrange the equation to solve for $\theta$ when $\mathbb{X}$ is full column rank.
+\[
+\hat{\theta} = (\mathbb{X}^{\top}\mathbb{X})^{-1}\mathbb{X}^{\top}\mathbb{Y}.
+\]
+
+Here, we are using $\mathbb{X}$ to denote the design matrix:
+\[
+\mathbb{X} = \begin{bmatrix} 
+    1  & x_{1,1}  & x_{1,2}  & \cdots & x_{1,p}\\
+    1  & x_{2,1}  & x_{2,2}    & \cdots & x_{2,p}\\
+    \vdots & \vdots & \vdots & \ddots & \vdots\\
+    1  & x_{n,1}  & x_{n,2}    & \cdots & x_{n,p}
+\end{bmatrix}  = 
+\begin{bmatrix}
+| & | & | &  & |\\
+\mathbbm{1} & x_1 & x_2 & \cdots & x_p\\
+| & | & | &  & |\\
+\end{bmatrix}
+\]
+where $\mathbbm{1}$ is the vector of all $1$s of length $n$ and $x_j$ is the $n$-vector $\begin{bmatrix} 
+ x_{1,j} \\ \vdots \\ x_{n,j} \end{bmatrix} $. In other words, it is the $j$th feature vector.
+
+To build intuition for these equations and relate them to the SLR estimating equations, we will derive them algebraically using calculus.
+
+
+
+\begin{parts}
+\part[3] Show that finding the optimal estimator $\hat \theta$ by solving the normal equations is equivalent to requiring that the residual vector $e = \mathbb{Y}-\mathbb{X}\hat \theta$ should average to zero, and the residual vector $e$ should be orthogonal to $X_j$ for every $j$. That is, show that the matrix form of normal equation can be written as:
+\[
+\bar{e} = \frac{1}{n}\sum_{i=1}^n e_i = 0
+\]
+and 
+\[
+x_j^{\top} e = \sum_i x_{i,j} e_i = 0
+\]
+for all $j=1,\ldots,p$. (Hint: Expand the normal equation above and perform matrix multiplication for the first few terms. Can you find a pattern?)
+ 
+%%%%%%%%%%%%%% Question 3a %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 3a %%%%%%%%%%%%%%
+
+\part[4] Remember that the (empirical) MSE for multiple linear regression is 
+\[
+\text{MSE}(\theta) = \frac{1}{n} \sum_{i=1}^n (y_i - \theta_0 -\theta_1 x_{i,1}- \cdots - \theta_p x_{i,p})^2
+\]
+Use calculus to show that any $\theta = [\theta_0, \theta_1, ..., \theta_p]^{\top}$ that minimizes the MSE must solve the normal equations. 
+
+(Hint: Recall that, at a minimum of MSE, the partial derivatives of MSE with respect to every $\theta_i$ must all be zero. Find these partial derivatives and compare them to your answer in Q 3a.)
+ 
+ %%%%%%%%%%%%%% Question 3b %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 3b %%%%%%%%%%%%%%
+
+\end{parts}
+Remark: The two subparts above again together show that the geometric perspective is equivalent to the calculus approach of solving derivative and setting it to 0 for OLS. This is a desirable property of a linear model with L2 loss, and it generally does not hold true for other models and loss types. We hope these exercises clear up some mysteries about the orthogonality principle!
+
+
+\newpage
+\fullwidth{\section*{A Special Case of Linear Regression}}
+
+\vspace{-1em}
+
+\question[12]
+In this question, we fit two models:
+
+$$y^{S} = \theta_0^{S} + \theta_1^{S} x_1$$
+$$y^{O} = \theta_0^{O} + \theta_1^{O} x_1 +  \theta_2^{O} x_2$$
+
+using L2 loss. The superscript S is to denote a Simple Linear Regression (SLR) and O is used to denote a Ordinary Least Square (OLS) with two features, respectively. 
+
+The data are given below:
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        $y$ & bias & $x_1$ & $x_2$ \\
+        \hline
+        -1 & 1 & 1 & -1\\
+        3 & 1 & -2 & 0\\
+        4 & 1 & 1 & 1\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{parts}
+    \part[3] Find $\theta_0^{S}$ and $\theta_1^{S}$ using the formulas derived in lecture 10
+        ($\hat{\theta}_1^S = r\frac{\sigma_y}{\sigma_x}$ and $\hat{\theta}_0^S = \bar{y} - \hat{\theta}_1^S \bar{x}$). Specify which x you are using and show all steps. You may find it helpful to keep intermediate steps in the square root (they cancel out nicely at the end!).
+
+%%%%%%%%%%%%%% Question 4a %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 4a %%%%%%%%%%%%%%
+
+    \part[2] Find $\hat{\theta}^S = \begin{bmatrix} \hat{\theta}_0^{S} \\ \hat{\theta}_1^{S} \end{bmatrix}$ using the formula derived in lecture 12:
+        $\hat{\theta}^S = (\mathbb{X}^{\top} \mathbb{X})^{-1} \mathbb{X}^{\top} y$. Explicitly write out the matrix $\mathbb{X}$ for this problem and show all steps. How does it compare to your answer to part a)? (Hint: $\begin{bmatrix} a & 0 \\ 0 & b \end{bmatrix}^{-1} = \begin{bmatrix} 1/a & 0 \\ 0 & 1/b \end{bmatrix}$)
+        
+%%%%%%%%%%%%%% Question 4b %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 4b %%%%%%%%%%%%%%
+
+        \part[2] Find the MSE for the SLR model above. (As a sanity check, sum of residuals should be 0.)
+ 
+%%%%%%%%%%%%%% Question 4c %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 4c %%%%%%%%%%%%%%
+
+    \part[2] Find $\hat{\theta}^O = \begin{bmatrix} \hat{\theta}_0^{O} \\ \hat{\theta}_1^{O} \\  \hat{\theta}_2^{O} \end{bmatrix}$ using the formula derived in lecture 12:
+        $\hat{\theta}^O = (\mathbb{X}^{\top} \mathbb{X})^{-1} \mathbb{X}^{\top} y$ Explicitly write out the matrix $\mathbb{X}$ for this problem and show all steps. (Hint: The intercept and coefficient of $x_1$ for MLR are the same as SLR in this special example. Check remark at the end of the question to see why this is the case.)
+ 
+%%%%%%%%%%%%%% Question 4d %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 4d %%%%%%%%%%%%%%
+
+    \part[3] Show that MSE for the MLR is 0. What is the relationship between $y$ and $\text{span}(\mathbb{X})$. (As a sanity check, sum of residuals should be 0.)
+ 
+%%%%%%%%%%%%%% Question 4e %%%%%%%%%%%%%%
+    \begin{shaded}
+    \begin{answer}
+
+% YOUR ANSWER HERE %
+
+    \end{answer}
+    \end{shaded}
+%%%%%%%%%%%%%% Question 4e %%%%%%%%%%%%%%
+    
+\end{parts}
+
+
+Remark: This question intends to give you some practice with SLR and OLS with actual numbers. It is important to note that the coefficients corresponding to the same variable in different linear models are usually not the same. They are only identical in this problem because we have carefully constructed the matrix such that features are orthogonal to each other to simplify the calculations. We will discuss the opposite case,  multi-colinearity, in the future. Don't worry if you don't understand it yet!
+
+
+\newpage
+
+
+\end{questions}
+
+\end{document}
